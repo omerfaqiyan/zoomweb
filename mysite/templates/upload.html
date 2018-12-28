@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+
+  <title>Zoom Reformat</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+        {% if url == None %}
+      <div class="col-md-6">
+          <div class="card">
+              <h5 class="card-header">Upload Zoom File</h5>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+        
+                <form method="post" enctype="multipart/form-data" action="/upload">
+                  <div class="form-group">
+        
+                    {% csrf_token %}
+                    <input type="file" name="document">
+                    <button type="submit" class="btn btn-primary">Reformat</button>
+                  </div>
+        
+                </form>
+        
+              
+              </div>
+            </div>
+      </div>
+      {% endif %}
+      {% if url %}
+      <div class="col-md-6">
+          <div class="card">
+              <h5 class="card-header">Zoom Reformat</h5>
+              <div class="card-body">
+                 
+                  <label>Reformatted File:</label>
+                    <a class="btn btn-success" href="{{ url }}">Download file</a>
+                  <br>
+
+                
+              </div>
+            </div>
+            <a class="btn btn-success" href="/">Go Back</a>
+      </div>
+      {% endif %}
+    </div>
+    
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
